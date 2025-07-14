@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reverse Prompt Game</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 30px;
+        }
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #222;
+            text-align: center;
+        }
+        .output-box {
+            background-color: #eef3ff;
+            border-left: 5px solid #4b75ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .result-box {
+            background-color: #d4fcd4;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            white-space: pre-line;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4b75ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #355ddd;
+        }
+        .button-row {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📘 Reverse Prompt Game</h1>
+
+        <div class="output-box">
+            <strong>AI Output:</strong><br>
+            {{ output }}
+        </div>
+
+        <form method="post">
+            <label for="guess">Your Prompt Guess:</label>
+            <input type="text" id="guess" name="guess" required>
+
+            <div class="button-row">
+                <button type="submit">✅ Submit Guess</button>
+                <button type="submit" name="refresh" value="1">🔄 New Round</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
